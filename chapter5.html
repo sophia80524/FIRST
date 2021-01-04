@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chapter 5</title>
+<style>
+	body{
+		 margin: 0; padding: 0; height: 100%; border:none;
+     overflow-x: hidden;
+     overflow-y: hidden;
+	}	
+	
+    #vid{
+      position: absolute;
+      top:-70px;
+      z-index: 15;
+      opacity: 1;
+      pointer-events: none;
+      left:-60px;
+    }
+
+        #yesV{
+      position: fixed;
+      z-index: 15;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+        #noV{
+      position: fixed;
+      z-index: 15;
+      opacity: 0;
+      pointer-events: none;
+    }
+	
+	#content{
+		z-index: 1;
+		
+	}
+	
+	#bg{
+		z-index: 1;
+
+	}
+
+  #con{
+    z-index: 11;
+    position: absolute;
+    top: 0px;
+  }
+
+  #timer{
+    position: fixed;
+    top: 20px;
+    right: 130px;
+    text-align: center;
+  }
+
+
+  #no {
+  position: absolute;
+  color: white;
+  font-size: 50px;
+  top: -3px;
+  left: 20px;
+  z-index: 10;
+  text-align: center;
+  width: 60px;
+}
+
+#circle{
+  position: absolute;
+  top: 23px;
+  stroke-dasharray: 254px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  animation: none;
+}
+
+svg{
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 254px;
+  }
+}
+
+#baby{
+  position: absolute;
+  z-index: 12;
+  top:-30px;
+  left: -25px;
+  transform: translate3d(403px, 403px, 0px) rotate(0deg) scaleX(1);
+  transition: transform 2s ease-out;
+}
+
+map{
+  pointer-events: none;
+}
+
+#start{
+  position: absolute;
+  top: 350px;
+  left: 350px;
+  z-index: 13;
+  opacity: 1;
+  pointer-events: none;
+}
+
+#start1{
+  position: absolute;
+  top: -70px;
+  left: 0;
+  z-index: 14;
+  pointer-events: none;
+  opacity: 1;
+
+
+}
+
+#end{
+  position: fixed;
+  top: -70px;
+  left: 0;
+  z-index: 16;
+  pointer-events: none;
+  opacity: 0;
+
+
+}
+
+
+#end2{
+  position: fixed;
+  top: -70px;
+  left: 0;
+  z-index: 16;
+  pointer-events: none;
+  opacity: 0;
+
+
+}
+
+	
+</style>
+</head>
+
+<body onload="window.resizeTo(1280,760);" onResize="window.resizeTo(1280,760)">
+
+ <img id="start1" src="picture/5/五開.png" width="1300px" height="auto" alt=""/>
+   <img id="end" src="picture/5/五關＿兩人世界.png" width="1300px" height="auto" alt=""/>
+<img id="end2" src="picture/5/五關＿小水母.png" width="1300px" height="auto" alt=""/>
+
+
+<video autoplay muted onended="videoEnd()" id="vid" width="auto" height="900px">
+<source src="picture/5/final video.mp4" type="video/mp4">
+</video>
+
+<img id="start" src="picture/5/start.png" width="535px" height="auto" alt=""/>
+
+<video id="yesV" onended="first()">
+	<source src="picture/5/yes.mp4" type="video/mp4">
+</video>
+
+<video id="noV" onended="first()">
+  <source src="picture/5/no.mp4" type="video/mp4">
+</video>
+
+<div id="content">
+  <img id="bg" src="picture/5/bg.png" width="1315" height="8250" alt=""/>
+</div>
+
+
+<img id="baby" src="picture/5/small001/小水母_0.png" width="135px" height="auto" alt=""/>
+
+<div id="timer">
+
+   <p id="no">  </p>
+
+  <svg id="circle" height="100" width="100">
+
+    <circle cx="50" cy="50" r="40" stroke="white" stroke-width="4" fill="none" />
+  </svg>
+
+</div>
+
+
+<div>
+<img src="picture/5/con.png" alt="" width="1315" height="8250" usemap="#conMap" id="con" onclick="hi()"/>
+<map name="conMap">
+  <area shape="poly" coords="3,3,1311,3,1311,5658,1168,5564,1186,2698,1195,1109,1186,523,1159,451,801,268,757,214,756,143,727,95,645,93,573,137,510,221,457,287,425,308,261,392,188,453,143,939,150,3000,152,5535,3,5684,4,9" href="#">
+</map>
+
+ <!--<map name="conMap">
+ <area shape="poly" coords="675,122,722,163,750,238,790,293,889,340,1145,448,1170,888,1170,3399,1146,5553,1309,5665,1304,8240,4,8244,4,5687,140,5580,174,5443,169,1557,211,449,398,333,505,258,601,135" href="#">
+</map>-->
+</div>
+
+
+
+
+
+
+<script>
+
+
+var vid = document.getElementById("vid");
+
+function playVid(){
+  vid.play();
+
+}
+
+
+  function videoEnd(){
+    //alert("hi");
+    vid.style.opacity="0";
+    vid.style.WebkitTransition="opacity 0.3s";
+    document.body.style.overflowY="auto";
+
+    setInterval(function(){ document.getElementById("start1").style.opacity="0";
+  document.getElementById("start1").style.WebkitTransition = "opacity 5s";},1000);
+    document.getElementById("start").style.pointerEvents="all";
+
+    //myFunction();
+  }
+  
+
+  window.addEventListener("load", babyTimer);
+  var babyT;
+  var countBaby = 0;
+
+  function babyTimer(){
+  babyT = setInterval("babyPng()",70);  
+}
+
+
+function babyPng(){
+  countBaby ++;
+  if (countBaby > 84){
+    countBaby = 0;
+  }
+  
+
+  else{
+  var s = "picture/5/small001/小水母_" + countBaby + ".png";
+  document.getElementById("baby").src = s;
+  }
+}
+
+document.getElementById("start").addEventListener("click",timerS);
+
+function timerS(){
+  //alert("hi");
+  document.getElementById("start").style.opacity="0";
+  document.getElementById("start").style.display="none";
+  document.getElementById("start").style.WebkitTransition="opacity 0.5s"
+  document.getElementById("start").pointerEvents="none";
+  myFunction();
+}
+
+
+
+//timer
+
+//window.addEventListener("load",myFunction);
+var cal = 10;
+
+function myFunction() {
+   document.getElementById("circle").style.animation= "countdown 10s linear forwards";
+  document.getElementById("no").innerHTML= cal;
+  noT = setInterval("noCountDown()",1000);  
+}
+
+
+
+function noCountDown(){
+  cal --;
+  document.getElementById("no").innerHTML= cal;
+  if (cal < 1){
+    clearInterval(noT);
+  }
+
+  
+  else{
+  document.getElementById("no").innerHTML= cal;
+  }
+}
+
+
+
+
+var preX=0;
+var preY=0;
+
+document.getElementById("con").addEventListener("click", getClickPosition,   false);
+
+
+function getClickPosition(e){
+  var xPosition = e.clientX ;
+  var yPosition = event.offsetY ;
+
+  //alert(event.offsetY);
+
+  //transform: translate3d(610px, 383px, 0px) rotate(0deg) scaleX(1);
+
+  var threeD= "translate3d(" + xPosition + "px ," + yPosition + "px,"+ 0 + "px)"; 
+
+      if (xPosition > preX){
+
+          if (yPosition > preY)
+        document.getElementById("baby").style.transform = threeD + "rotate(160deg) scaleX(1)"; 
+
+          else {
+            document.getElementById("baby").style.transform = threeD + "rotate(20deg) scaleX(1)"; 
+          }
+  }
+  
+
+      else if (xPosition < preX){
+
+        if (yPosition > preY)
+        document.getElementById("baby").style.transform = threeD + "rotate(210deg) scaleX(1)"; 
+
+          else {
+            document.getElementById("baby").style.transform = threeD + "rotate(340deg) scaleX(1)"; 
+          }
+  
+        }
+ 
+
+  preX=e.clientX;
+  preY=event.offsetY;
+
+}
+
+
+
+///testing, can delete all below here////
+
+function doSomething(e) { 
+    alert("hi"); 
+    getPosition(myElement);
+    
+}
+
+window.addEventListener("click", getPosition, noCountDown, false);
+
+
+// helper function to get an element's exact position
+function getPosition(el) {
+  var y = event.offsetY ;
+  var yesV = document.getElementById("yesV");
+var noV = document.getElementById("noV");
+  //alert(y);
+
+        if(preY > 5720 && cal < 2 ) {
+          //alert(y);
+          yesV.style.opacity="1";
+          yesV.style.WebkitTransition = "opacity 1s";
+          yesV.play();
+          setInterval(function(){ document.getElementById("end2").style.opacity="1";
+  document.getElementById("end2").style.WebkitTransition = "opacity 5s";},3500);
+
+        }
+        if(preY < 5719 && cal < 2) {
+          //alert("Current y position = " + y + "Too bad loser replay now");
+          noV.style.opacity="1";
+          noV.style.WebkitTransition = "opacity 1s";
+          noV.play();
+          setInterval(function(){ document.getElementById("end").style.opacity="1";
+  document.getElementById("end").style.WebkitTransition = "opacity 5s";},3500);
+        }
+
+        preY = event.offsetY;
+      }
+
+
+ function first(){
+  setInterval(function(){ location.href="index.html"},1000);
+ }     
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+
+</html>

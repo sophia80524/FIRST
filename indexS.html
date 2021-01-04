@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>First</title>
+</head>
+
+<body onload="window.resizeTo(1280,760);" onResize="window.resizeTo(1280,760)"onclick="audio()">
+
+<!--<video id="vid" width="auto" height="800px">
+<source src="picture/index/video1.mp4" type="video/mp4">
+</video>-->
+
+<iframe src="picture/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+	<audio id="audio" loop autoplay>
+<source src="picture/水聲.mp3" type="audio/mp3">
+</audio>
+
+
+
+<div id="wrap">
+
+
+  <img id="bg" class="all" src="picture/index/index new/index new_0.png" width="100%" height="auto" alt=""/>
+ 
+
+	
+	<div id="dot01" class="all"> <img src="picture/index/index dot01.png" width="100%" height="auto" alt=""/></div>
+	<div id="dot02" class="all"> <img src="picture/index/index dot02.png" width="100%" height="auto" alt=""/></div>
+	<div id="dot03" class="all"> <img src="picture/index/index dot03.png" width="100%" height="auto" alt=""/></div>
+	<div id="dot04" class="all"> <img src="picture/index/index dot04.png" width="100%" height="auto" alt=""/></div>
+	<div id="dot05" class="all"> <img src="picture/index/index dot05.png" width="100%" height="auto" alt=""/></div>
+	<div id="up" class="all"> <img src="picture/index/index up.png" alt="" width="100%" height="auto"/></div>
+	
+	
+	
+ 	<a href="about.html"><img id="head" class="logo" src="picture/index/new/Head.png" width="270" height="258" alt=""/></a>
+    <a href="chapter01.html"><img id="f" class="logo" src="picture/index/new/F.png" width="28" height="auto" alt=""/></a>
+    <a href="chapter2.html"><img id="i" class="logo" src="picture/index/new/I.png" width="23" height="auto" alt=""/></a>
+    <a href="chapter3.html"><img id="r" class="logo" src="picture/index/new/R.png" width="30" height="auto" alt=""/></a>
+    <a href="chapter4.html"><img id="s" class="logo" src="picture/index/new/S.png" width="30" height="auto" alt=""/></a>
+    <a href="chapter5.html"><img id="t" class="logo" src="picture/index//new/tB.png" width="30" height="auto" alt=""/></a>
+    
+</div>    
+    
+<style>
+		html, body { margin: 0; padding: 0; height: 100%; border:none; overflow: hidden; }
+
+
+		#vid{
+			position: absolute;
+			z-index: 20;
+			opacity: 1;
+			pointer-events: none;
+		}
+
+		#wrap{
+			opacity: 1;
+		
+		}
+	
+	#bg{
+		pointer-events: none;
+		z-index: -10;
+		
+	}
+	
+	p{
+		color: aliceblue;
+	}
+	
+		.all{
+			position: absolute;
+			z-index:1;
+			overflow: hidden;
+			
+		}
+	
+	    	.logo{
+				position: absolute;
+				top: 0;
+				left: 30px;
+				z-index: 10;
+			}
+	
+	#head{
+		position: absolute;
+		left: 40%;
+		top: 80px;
+		animation: floathead 4s ease-in-out infinite;
+		
+	}
+	
+	#f{
+		position: absolute;
+		left: 36%;
+		top:380px;
+		animation: float 5.2s ease-in-out infinite;
+	}
+	
+	#i{
+		position: absolute;
+		left: 41%;
+		top:380px;
+		animation: float 4.5s ease-in-out infinite;
+	}
+	
+	#r{
+		position: absolute;
+		left: 47%;
+		top:380px;
+		animation: float 5.4s ease-in-out infinite;
+	}	
+	
+	#s{
+		position: absolute;
+		left: 54%;
+		top:380px;
+		animation: float 4s ease-in-out infinite;
+	}
+
+	#t{
+		position: absolute;
+		left: 62%;
+		top:380px;
+		animation: float 5s ease-in-out infinite;
+		pointer-events:none; 
+	}
+	
+	
+	@keyframes floathead {
+	0% {
+		transform: translate(0px,0px);
+		-webkit-transform: scale(1.01);
+		
+	}
+	50% {
+		transform: translate(3px,-10px);
+		-webkit-transform: scale(1.0);
+		
+	}
+	100% {
+		transform: translate(0px,0px);
+		-webkit-transform: scale(1.01);
+		
+		
+	}
+}
+	
+	@keyframes float {
+	0% {
+		transform: translatey(0px);
+		-webkit-transform: scale(1.07);
+		
+	}
+	50% {
+		transform: translatey(-15px);
+		-webkit-transform: scale(1.0);
+		
+	}
+	100% {
+		transform: translatey(0px);
+		-webkit-transform: scale(1.07);
+		
+		
+	}
+}
+
+	
+		#dot01{
+			opacity: 0.6;
+			animation-name:dot;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-direction: alternate;
+			pointer-events: none;
+		}
+		#dot02{
+			opacity: 0.4;
+			animation-name:dot;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-direction: alternate;
+			pointer-events: none;
+		}
+		#dot03{
+			animation-name:dot;
+			animation-duration: 4s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-direction: alternate;
+			pointer-events: none;
+		}
+		#dot04{
+			opacity: 0.8;
+			animation-name:dot;
+			animation-duration: 2.5s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-direction: alternate;
+			pointer-events: none;
+		}	
+		
+		#dot05{
+			opacity: 0.5;
+			animation-name:dot;
+			animation-duration: 2.1s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-direction: alternate;
+			pointer-events: none;
+		}
+		@keyframes dot{
+		0%{
+			transform: translate(1%,-2%);
+		}
+		100%{
+			transform: translate(1.5%,2%);
+		}
+			
+			
+		
+			
+	
+		
+	</style>
+	
+	
+	
+	<script>
+
+		function audio(){
+			var x = document.getElementById("audio");
+	x.play();
+		}
+
+		window.addEventListener("click", playVid);
+		var vid = document.getElementById("vid");
+		var countV = 0;
+		var v;
+	
+
+function playVid(){
+	vid.play();
+	v = setInterval("vidO()",1000);
+}
+
+function vidO(){
+	countV ++;
+	//alert("hi");
+	
+	if (countV > 29){
+		//alert("hi");
+		document.getElementById("vid").style.opacity="0";
+		document.getElementById("vid").style.WebkitTransition="opacity 1s";
+		clearInterval(v);
+	}
+	
+	
+}
+
+	vid.onended = function wrap() {
+  		//alert("videoend");
+		document.getElementById("vid").style.opacity="0";
+		document.getElementById("vid").style.WebkitTransition="opacity 1s";
+		document.getElementById("vid").style.pointerEvents="none";
+		document.getElementById("wrap").style.pointerEvents="all";
+		document.getElementById("audio").play();
+};
+
+	
+
+	var t;
+	var count = 0;
+
+	window.addEventListener("load", bgMove);
+
+
+	
+	function bgMove(){
+	t = setInterval("pngStart()",90);
+}	
+
+function pngStart(){
+	count ++;
+	
+	if (count > 68) count = 0;
+	
+
+	else{
+	var s = "picture/index/index new/index new_"+ count + ".png";
+	var p = document.getElementById("bg");
+	p.src = s;	
+	}
+	
+}
+	</script>
+	
+	
+	
+</body>
+</html>

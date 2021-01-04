@@ -1,0 +1,286 @@
+@charset "UTF-8";
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  padding:0;
+  margin:0;
+  overflow: hidden;
+  user-select: none; 
+	
+}
+
+#cover{
+	opacity: 0.5;
+	animation: cover 5s ease-in;
+}
+
+@keyframes cover{
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+#video{
+	z-index: 20;
+	opacity: 1;
+}
+
+body {
+  position: relative;
+}
+
+.wrap {
+  height: 100%;  
+  position: relative;
+  overflow: hidden;
+	
+}
+
+  
+  .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    z-index: 1;
+    background: url('../picture/bg001/BG2_0.png') no-repeat center center;
+    background-size: 100% 100%;
+    transform: scale(0.8);
+  }
+
+
+
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index:9;
+  pointer-events: none;
+}
+
+#jelly_Mouse {
+	position: absolute;
+	z-index: 10;
+	display:block;
+	pointer-events: none;
+
+}
+
+.creature{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    z-index: 10;
+
+}
+
+
+#yellowJelly{
+	-ms-transform: rotate(20deg); /* IE 9 */
+  	-webkit-transform: rotate(20deg); /* Safari 3-8 */
+  	transform: rotate(0deg) scaleX(1);
+  	pointer-events: none;
+  	cursor: not-allowed;
+ 
+}
+
+
+#mouseglow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index:10;
+}
+
+#oct{
+	z-index: 10;
+	position: fixed;
+	top:150px;
+	left:240px;
+	
+}
+
+#oct1{
+	z-index: 10;
+	position: relative;
+	top:150px;
+	left:240px;
+}
+
+#star{
+	z-index: 10;
+	position: absolute;
+	top:310px;
+	left:80px;
+	
+}
+
+#urchine{
+	z-index: 10;
+	position: absolute;
+	top:560px;
+	left:590px;
+	
+}
+
+#horse{
+	z-index: 10;
+	position: absolute;
+	top:420px;
+	left:380px;	
+}
+
+#dolphin{
+	z-index: 10;
+	position: absolute;
+	top:70px;
+	left:20px;
+	-webkit-transform: scaleX(-1);	
+}
+
+#light{
+	z-index: 10;
+	position: absolute;
+	top:100px;
+	left:1000px;	
+}
+
+#can{
+	z-index: 10;
+	position: absolute;
+	top:84%;
+	left: 100px;
+	opacity: 1;
+}
+
+#starC{
+	z-index: 9;
+	position: absolute;
+	top:240px;
+	left:100px;
+	animation: none 5s;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#dolC{
+	z-index: 9;
+	position: absolute;
+	top:10px;
+	left:160px;
+	animation: none 5s;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#urcC{
+	z-index: 9;
+	position: absolute;
+	top:510px;
+	left:490px;
+	animation: none 5s;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#horseC{
+	z-index: 9;
+	position: absolute;
+	top:350px;
+	left:430px;
+	animation: none 5s;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#lightC{
+	z-index: 9;
+	position: absolute;
+	top:80px;
+	left:900px;
+	animation: none 5s;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#octC{
+	z-index: 9;
+	position: absolute;
+	top:140px;
+	left:380px;
+	animation: none 5s;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#purpleJelly{
+	z-index: 10;
+	position: absolute;
+	top:350px;
+	left:940px;
+	
+}
+
+#fish{
+	z-index: 11;
+	position: absolute;
+	top:370px;
+	left:900px;
+	transform: rotateY(190deg);
+}
+
+
+@keyframes floatchat {
+	0% {
+		opacity:  1;
+}
+		
+	30%{
+		opacity:  1;
+	}	
+	100% {
+		opacity: 0;
+		
+		
+	}
+}
+
+#start{
+	position: absolute;
+	top: -70px;
+	left: 0;
+	z-index: 20;
+	pointer-events: none;
+	opacity: 1;
+
+
+}
+
+#end{
+	position: absolute;
+	top: -70px;
+	left: 0;
+	z-index: 20;
+	pointer-events: none;
+	opacity: 0;
+
+
+}
+
+
+
+
+
+
+  

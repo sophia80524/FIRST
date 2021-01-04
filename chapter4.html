@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chapter 4</title>
+<link href="css/chap4.css" rel="stylesheet" type="text/css">
+<link href="js/fixed-positioning.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="window.resizeTo(1280,760);" onResize="window.resizeTo(1280,760)">
+	<iframe src="picture/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+	<audio id="audio" loop autoplay>
+<source src="picture/水聲.mp3" type="audio/mp3">
+</audio>
+
+<img id="start" src="picture/四開.png" width="1300px" height="auto" alt=""/>
+<img id="end" src="picture/四關.png" width="1300px" height="auto" alt=""/>
+
+
+<div id="container" class="parallax">
+
+
+<div id="bg1" class="parallax__layer parallax__layer--back2"><img src="picture/bg4/4.1.png" width="3800" height="auto" alt=""/></div>
+<div id="bg2" class="parallax__layer parallax__layer--back"><img src="picture/bg4/4.2.png" width="2100" height="auto" alt=""/></div>
+<div id="bg3" class="parallax__layer parallax__layer--base"><img src="picture/bg4/4.3.png" width="1300" height="auto" alt=""/></div>
+ 
+ <img id="fight" class="jellypng" src="picture/fight/吵架_0.png" width="450" height="auto" alt=""/> 
+ 
+ <img id="good" class="goodjellypng" src="picture/和好/和好_0.png" width="500" height="auto" alt=""/>
+
+<div id="moveContainer"> 
+ 
+ 		<img onClick="hideChar('a')" id="a" class="alpha" src="picture/bg4/alpha/A.png" width="131" height="142" alt=""/> 
+  		<img onClick="hideChar('b')" id="b" class="alpha" src="picture/bg4/alpha/B.png" width="131" height="142" alt=""/> 
+  		<img onClick="hideChar('e')" id="e" class="alpha" src="picture/bg4/alpha/E.png" width="131" height="142" alt=""/> 
+ 		 <img onClick="hideChar('h')" id="h" class="alpha" src="picture/bg4/alpha/H.png" width="131" height="142" alt=""/> 
+  		<img onClick="hideChar('j')" id="j" class="alpha" src="picture/bg4/alpha/J.png" width="131" height="142" alt=""/> 
+  		<img onClick="hideChar('k')" id="k" class="alpha" src="picture/bg4/alpha/K.png" width="131" height="142" alt=""/> 
+  		<img onClick="showChar('o')" id="o" class="alpha" src="picture/bg4/alpha/O.png" width="131" height="142" alt=""/> 
+ 		 <img onClick="hideChar('q')" id="q" class="alpha" src="picture/bg4/alpha/Q.png" width="131" height="142" alt=""/> 
+  		<img onClick="showChar('r')" id="r" class="alpha" src="picture/bg4/alpha/R.png" width="131" height="142" alt=""/> 
+ 		 <img onClick="showChar('r2')" id="r2" class="alpha" src="picture/bg4/alpha/R2.png" width="131" height="142" alt=""/> 
+  		<img onClick="showChar('s')" id="s" class="alpha" src="picture/bg4/alpha/S.png" width="131" height="142" alt=""/> 
+  		<img onClick="hideChar('u')" id="u" class="alpha" src="picture/bg4/alpha/U.png" width="131" height="142" alt=""/> 
+  		<img onClick="hideChar('v')" id="v" class="alpha" src="picture/bg4/alpha/V.png" width="131" height="142" alt=""/> 
+  		<img onClick="hideChar('w')" id="w" class="alpha" src="picture/bg4/alpha/W.png" width="131" height="142" alt=""/> 
+  		<img onClick="showChar('y')" id="y" class="alpha" src="picture/bg4/alpha/Y.png" width="131" height="142" alt=""/> 
+  
+
+		<img id="UPs" class="alpha" src="picture/bg4/alpha/S.png" width="131" height="142" alt=""/> 
+		<img id="UPo" class="alpha" src="picture/bg4/alpha/O.png" width="131" height="142" alt=""/> 
+		<img id="UPr" class="alpha" src="picture/bg4/alpha/R.png" width="131" height="142" alt=""/> 
+		<img id="UPr2" class="alpha" src="picture/bg4/alpha/R2.png" width="131" height="142" alt=""/> 
+		<img id="UPy" class="alpha" src="picture/bg4/alpha/Y.png" width="131" height="142" alt=""/> 
+
+
+	   <!--yellow jelly-->
+ 	<div id="yellowX"><img id="yellow" src="picture/yellow/y_0.png" width="130" height="223" alt=""/> </div>
+ 
+ <!--purple jelly-->
+
+ 	<img id="purple" src="picture/紫生氣/紫生氣_0.png" width="140" height="auto" alt=""/> 
+  
+ </div> 
+  
+  </div>
+
+  
+  
+<script type="text/javascript" src="js/skrollr.min.js"></script>
+<script>
+	
+	  
+	
+var t;
+	var count = 0;
+	window.addEventListener("load", pngFight);
+	window.addEventListener("load", purplePng);
+	
+	function pngFight(){
+	t = setInterval("pngStart()",50);
+		setInterval(function(){	document.getElementById("start").style.opacity="0";
+	document.getElementById("start").style.WebkitTransition = "opacity 5s";},1000);
+}	
+
+function pngStart(){
+	count ++;
+	if (count > 314){
+		clearInterval(t);
+		document.getElementById("fight").style.display="none";
+		document.getElementById("yellow").style.display="block";
+		document.getElementById("container").style.overflowY="scroll";
+		yellowPng();
+	}
+
+	else{
+		var s = "picture/fight/吵架_" + count+ ".png";
+	var p = document.getElementById("fight");
+	p.src = s;
+	}
+}	
+	
+function hideChar(char){
+	document.getElementById(char).style.opacity="0";
+	document.getElementById(char).style.pointerEvents="none";
+	document.getElementById(char).style.WebkitTransition = "opacity 1s";	
+	
+}		
+var yellowT;
+var countYellow = 0;
+
+function yellowPng(){
+	yellowT = setInterval("yellowPng1()",70);
+}
+
+function yellowPng1(){
+	yellow.style.display="block";
+	countYellow ++;
+	if (countYellow > 88){
+		countYellow = 0;
+	}
+	
+
+	else{
+	var s = "picture/yellow/y_" + countYellow + ".png";
+	yellow.src = s;
+	}
+}
+
+
+var puepleT;
+var countPurple = 0;
+var purple = document.getElementById("purple");
+
+function purplePng(){
+	yellowT = setInterval("purplePng1()",90);
+}
+
+function purplePng1(){
+	countPurple ++;
+	if (countPurple > 88){
+		countPurple = 0;
+	}
+	
+
+	else{
+	var s = "picture/紫生氣/紫生氣_" + countPurple + ".png";
+	purple.src = s;
+	}
+}
+
+
+
+//move
+var preX=0;
+var preY=0;
+
+document.getElementById("bg3").addEventListener("click", getClickPosition, false);
+
+function getClickPosition(e){
+	var xPosition = e.clientX;
+	var yPosition = event.offsetY;
+
+	//alert(event.offsetY);
+
+	//transform: translate3d(610px, 383px, 0px) rotate(0deg) scaleX(1);
+
+	var threeD= "translate3d(" + xPosition + "px ," + yPosition + "px,"+ 0 + "px)"; 
+
+	    if (xPosition > preX){
+
+	    		if (yPosition > preY)
+    		document.getElementById("yellow").style.transform = threeD + "rotate(160deg) scaleX(1)"; 
+
+    			else {
+    				document.getElementById("yellow").style.transform = threeD + "rotate(20deg) scaleX(1)"; 
+    			}
+  }
+  
+
+  		else if (xPosition < preX){
+
+  			if (yPosition > preY)
+    		document.getElementById("yellow").style.transform = threeD + "rotate(210deg) scaleX(1)"; 
+
+    			else {
+    				document.getElementById("yellow").style.transform = threeD + "rotate(340deg) scaleX(1)"; 
+    			}
+  
+  			}
+
+ 		
+
+
+
+		
+
+  preX=e.clientX;
+  preY=event.offsetY;
+
+
+	//document.getElementById("yellow").style.transform = threeD;
+
+
+
+}
+
+
+
+
+
+
+
+
+	
+	
+var sorryStatus=[0,0,0,0,0];	
+	
+	
+function showChar(char){
+	document.getElementById('UP'+char).style.opacity="1";
+	document.getElementById('UP'+char).style.WebkitTransition = "opacity 2s";
+	document.getElementById(char).style.opacity="0";
+	document.getElementById(char).style.WebkitTransition = "opacity 1s";
+	
+	if ('UP'+char=="UPs") sorryStatus[0]=1;
+	if ('UP'+char=="UPo") sorryStatus[1]=1;	
+	if ('UP'+char=="UPr") sorryStatus[2]=1;	
+	if ('UP'+char=="UPr") sorryStatus[3]=1;	
+	if ('UP'+char=="UPy") sorryStatus[4]=1;
+	
+	//end
+		var end = true;
+		for (var i=0; i<6; i++){
+			if (sorryStatus[i]==0) { end=false; break;}
+		}
+		
+		if (end) 
+			endStart();
+}	
+
+	
+	countEnd=0;
+	var e;
+
+	function endStart(){
+		purple.style.display="none";
+		document.getElementById("yellowX").style.display="none";
+
+		setInterval(function(){	document.getElementById("end").style.opacity="1";
+	document.getElementById("end").style.WebkitTransition = "opacity 5s";},2500);
+
+		e = setInterval("end2()",90);
+	}
+
+	function end2(){
+		countEnd ++;
+	if (countEnd > 288){
+		location.href="indexT.html";
+
+	}else{
+	 var e1 = "picture/和好/和好_" + countEnd + ".png";
+	  var n1 = document.getElementById("good");
+
+	  n1.style.display="block";
+	  n1.src = e1;
+	}
+
+	}
+
+	
+	
+	</script>
+
+
+ 
+  
+  
+
+  
+  
+
+
+ 
+
+
+
+
+
+
+   
+
+
+  
+
+
+</body>
+
+</html>

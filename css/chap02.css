@@ -1,0 +1,222 @@
+@charset "UTF-8";
+body,html{
+	height: 100%;
+	padding:0;
+    margin:0;
+}
+
+body{
+    width: 1300px;
+    height: 600px;
+}
+
+svg{
+  display: none;
+}
+
+html {
+  height: 100%;
+  padding:0;
+  margin:0;
+  overflow-x: scroll;
+  overflow-y: none;
+  user-select: none; 
+    }
+	
+#bg{
+	z-index: 1;
+	position: absolute;
+	pointer-events: none;
+}
+
+#mazeContainer{
+	position: absolute;
+	z-index: 10;
+	top: 145px;
+	left: 500px;
+	overflow-x: scroll;
+	opacity: 0;
+	pointer-events: none;
+	overflow: hidden;
+
+
+}	
+
+#stone{
+	z-index: 9;
+	position: absolute;
+	left: 2230px;
+	top: 10px;
+	display: none;
+}
+#smallstone2{
+	z-index: 9;
+	position: absolute;
+	left: 2230px;
+	top: 10px;
+	display: none;
+}
+#smallstone3{
+	z-index: 9;
+	position: absolute;
+	left: 2230px;
+	top: 10px;
+	display: none;
+}
+
+#head{
+	z-index: 9;
+	position: absolute;
+	left: 2230px;
+	top: 10px;
+	display: none;
+}
+
+#purple{
+	z-index: 9;
+	position: absolute;
+	left: 2230px;
+	top: 10px;
+	display: none;
+}
+	
+#stone1{
+	z-index: 7;
+	position: absolute;
+	bottom:-20px;
+	left: 300px;
+	opacity: 1;
+}	
+
+#stonecrack1{
+	z-index: 6;
+	position: absolute;
+	bottom:-20px;
+	left: 300px;
+	opacity: 1;
+	
+
+	
+}
+
+#stone2{
+	z-index: 8;
+	position: absolute;
+	bottom:-14px;
+	left: 736px;
+	opacity: 1;
+	
+}	
+
+#stonecrack2{
+	z-index: 7;
+	position: absolute;
+	bottom:-14px;
+	left: 736px;
+	opacity: 1;
+	
+}
+
+#stone3{
+	z-index: 6;
+	position: absolute;
+	top:55px;
+	left: 749px;
+	opacity: 1;
+	
+}	
+
+#stonecrack3{
+	z-index: 5;
+	position: absolute;
+	top:55px;
+	left: 749px;
+	opacity: 1;
+	
+}
+
+
+#stone4{
+	z-index: 7;
+	position: absolute;
+	top:0px;
+	left: 640px;
+	opacity: 1;
+	
+}	
+
+#stonecrack4{
+	z-index: 6;
+	position: absolute;
+	top:0px;
+	left: 640px;
+	opacity: 1;	
+}
+
+#up{
+	position: fixed;
+	z-index: 11;
+	top: 73%;
+	left: 85%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#down{
+	position: fixed;
+	z-index: 11;
+	top: 87%;
+	left: 85%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#left{
+	position: fixed;
+	z-index: 11;
+	top: 80%;
+	left: 81%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#right{
+	position: fixed;
+	z-index: 11;
+	top: 80%;
+	left: 89%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#end{
+	position: fixed;
+	top: 100px;
+	left:400px;
+	z-index: 30;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#start{
+	position: absolute;
+	top: -70px;
+	left: 0;
+	z-index: 20;
+	pointer-events: none;
+	opacity: 1;
+
+
+}
+
+#end1{
+	position: fixed;
+	top: -70px;
+	left: 0;
+	z-index: 20;
+	pointer-events: none;
+	opacity: 0;
+
+
+}
+

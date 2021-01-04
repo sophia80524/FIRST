@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+html, body {
+	width:100%;
+	height:auto;
+	padding:0;
+	margin:0;
+	background: black;
+
+}
+
+.absolute{
+	position: absolute;
+}
+
+.a:hover{
+	-webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+}
+
+

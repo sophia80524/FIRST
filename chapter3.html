@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chapter 3</title>
+<link href="css/chap3.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="window.resizeTo(1280,760);" onResize="window.resizeTo(1280,760)">
+	<iframe src="picture/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+	<audio id="audio" loop autoplay>
+<source src="picture/水聲.mp3" type="audio/mp3">
+</audio>
+
+<img id="start" src="picture/bg3png/三開.png" width="1300px" height="auto" alt=""/>
+<img id="end" src="picture/bg3png/三關.png" width="1300px" height="auto" alt=""/>
+
+<img id="base" class="bg1" src="picture/bg3png/工作區域 1_0.png" alt="" width="1000px" height="auto"/>
+<img id="stone" src="picture/dark/stone.png" width="1000" height="auto" alt=""/> 
+<img class="bgimg" src="picture/dark/alldark.png" alt="" width="1000px" height="auto" usemap="#Map" />
+
+<img id="kiss" class="bgimg" src="picture/kiss/kiss_1.png" width="250" height="auto" alt=""/>
+
+
+<map name="Map">
+  <area onclick="light('l1')" shape="poly" coords="671,587,730,553,724,535,720,513,709,512,670,448,623,470,642,501,636,511,637,533,652,542,638,548" href="#">
+  <area onclick="light('l2')" shape="poly" coords="734,546,756,529,733,489,731,467,735,445,713,434,696,442,696,424,685,408,670,418,680,456,699,480,714,506" href="#">
+  <area onclick="light('l3')" shape="poly" coords="764,499,778,430,757,399,745,365,734,353,719,332,704,338,726,379,680,359,664,395,696,394,713,406,711,410,690,406,699,432,714,434,738,444,732,470,742,494" href="#">
+  <area onclick="light('l4')" shape="poly" coords="787,422,811,362,788,317,777,286,760,274,739,265,727,288,709,292,697,326,716,326,737,354,750,373,761,402" href="#">
+  <area onclick="light('l5')" shape="poly" coords="783,286,830,244,830,215,820,193,810,172,795,187,776,174,760,183,770,225,751,223,739,245,760,267" href="#">
+  <area onclick="light('l6')" shape="poly" coords="844,217,862,165,848,98,836,104,822,90,806,103,810,122,776,108,768,137,802,146,776,152,795,180,814,171,824,194" href="#">
+  <area onclick="light('l7')" shape="poly" coords="834,88,826,34,802,30,794,45,777,58,793,99,802,106,818,87" href="#">
+  <area onclick="light('l8')" shape="poly" coords="736,69,778,52,798,42,802,-2,718,1,702,50" href="#">
+  <area onclick="light('l9')" shape="poly" coords="647,4,567,65,474,90,383,2,647,1" href="#">
+  <area onclick="light('l10')" shape="poly" coords="109,4,128,121,149,155,159,152,166,118,186,111,211,57,228,40,257,36,240,8" href="#">
+  <area onclick="light('l11')" shape="poly" coords="110,205,167,294,170,274,181,256,195,251,199,212,211,197,211,174,228,155,222,118,195,156,186,115,170,119,156,170,146,165,128,138" href="#">
+  <area onclick="light('l12')" shape="poly" coords="174,292,183,342,228,388,248,385,280,330,275,314,244,332,264,277,230,270,211,290,200,252,179,260" href="#">
+  <area onclick="light('l13')" shape="poly" coords="193,466,264,522,265,505,268,489,280,469,280,442,269,421,265,407,271,402,286,413,295,404,280,394,258,383,231,394,220,433,210,438" href="#">
+  <area onclick="light('l14')" shape="poly" coords="274,507,323,522,345,470,367,449,408,443,423,416,404,390,356,415,366,372,328,354,311,376,291,361,263,374,293,395,292,417,270,406,275,428,286,462,275,483" href="#">
+  <area onclick="light('l15')" shape="poly" coords="308,615,307,580,331,552,336,500,356,492,353,465,384,447,399,460,403,515,423,492,444,504,418,543,403,585,363,620,308,622" href="#">
+  <area onclick="light('l16')" shape="poly" coords="375,620,493,622,521,594,507,564,458,512,437,527,423,552,409,590" href="#">
+  <area onclick="light('l17')" shape="poly" coords="522,564,540,563,552,525,579,525,578,506,599,507,619,478,637,499,636,524,639,545,643,563,624,621,544,621,521,591" href="#">
+</map>
+
+
+<img class="bgimg bg2" src="picture/dark/stonefront.png" alt="" width="1000px" height="auto"/>
+
+
+<div id="light">
+
+<img id="l1" class="bgimg" src="picture/light/1.png" width="159px" height="auto" alt=""/> 
+<img id="l2" class="bgimg" src="picture/light/2.png" width="140px" height="auto" alt=""/> 
+<img id="l3" class="bgimg" src="picture/light/3.png" width="148px" height="auto" alt=""/> 
+<img id="l4" class="bgimg" src="picture/light/4.png" width="150px" height="auto" alt=""/> 
+<img id="l5" class="bgimg" src="picture/light/5.png" width="144px" height="auto" alt=""/> 
+<img id="l6" class="bgimg" src="picture/light/6.png" width="140px" height="auto" alt=""/> 
+<img id="l7" class="bgimg" src="picture/light/7.png" width="113px" height="auto" alt=""/> 
+<img id="l8" class="bgimg" src="picture/light/8.png" width="82px" height="auto" alt=""/> 
+<img id="l9" class="bgimg" src="picture/light/9.png" width="310px" height="auto" alt=""/> 
+<img id="l10" class="bgimg" src="picture/light/10.png" width="203px" height="auto" alt=""/> 
+<img id="l11" class="bgimg" src="picture/light/11.png" width="180px" height="auto" alt=""/> 
+<img id="l12" class="bgimg" src="picture/light/12.png" width="160px" height="auto" alt=""/> 
+<img id="l13" class="bgimg" src="picture/light/13.png" width="170px" height="auto" alt=""/> 
+<img id="l14" class="bgimg" src="picture/light/14.png" width="210px" height="auto" alt=""/> 
+<img id="l15" class="bgimg" src="picture/light/15.png" width="203px" height="auto" alt=""/> 
+<img id="l16" class="bgimg" src="picture/light/16.png" width="220px" height="auto" alt=""/> 
+<img id="l17" class="bgimg" src="picture/light/17.png" width="221px" height="auto" alt=""/> 
+</div>
+
+<script>
+	
+	var t;
+	var count = 0;
+	var b;
+	var e;
+	var count1 = 0;
+	window.addEventListener("load", pngFloat);
+	var p = document.getElementById("kiss");
+
+	
+	function pngFloat(){
+	t = setInterval("pngStart()",100);
+	//b = setInterval("pngBaseStart()",50);
+
+	setInterval(function(){	document.getElementById("start").style.opacity="0";
+	document.getElementById("start").style.WebkitTransition = "opacity 5s";},1000);
+}	
+
+function pngStart(){
+	count ++;
+	if (count > 84){
+		count = 0;
+	}
+	
+
+	else{
+	var s = "picture/kiss/kiss_" + count + ".png";
+	p.src = s;
+	}
+}	
+		
+
+function pngBaseStart(){
+	count1 ++;
+	if (count1 > 58){
+		count1 = 0;
+	
+	}
+
+	else{
+		var s1 = "picture/bg3png/工作區域 1_" + count1 + ".png";
+	var base = document.getElementById("base");
+	base.src = s1;
+	}
+}
+
+	
+	var lightStatus=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	
+	
+	
+	function light(ex){
+	document.getElementById(ex).style.display = "block";
+	document.getElementById(ex).style.pointerEvents="none";	
+	if (ex=="l1") lightStatus[0]=1;
+	if (ex=="l2") lightStatus[1]=1;	
+	if (ex=="l3") lightStatus[2]=1;	
+	if (ex=="l4") lightStatus[3]=1;	
+	if (ex=="l5") lightStatus[4]=1;
+	if (ex=="l6") lightStatus[5]=1;	
+	if (ex=="l7") lightStatus[6]=1;	
+	if (ex=="l8") lightStatus[7]=1;	
+	if (ex=="l9") lightStatus[8]=1;
+	if (ex=="l10") lightStatus[9]=1;	
+	if (ex=="l11") lightStatus[10]=1;	
+	if (ex=="l12") lightStatus[11]=1;
+	if (ex=="l13") lightStatus[12]=1;	
+	if (ex=="l14") lightStatus[13]=1;	
+	if (ex=="l15") lightStatus[14]=1;
+	if (ex=="l16") lightStatus[15]=1;	
+	if (ex=="l17") lightStatus[16]=1;
+		
+		//end
+		var end = true;
+		for (var i=0; i<17; i++){
+			if (lightStatus[i]==0) { end=false; break;}
+		}
+		
+		if ( end) {
+			clearInterval(t);
+			e = setInterval("end()",100);
+			}
+		
+}	
+
+
+function end(){
+	setInterval(function(){	document.getElementById("end").style.opacity="1";
+	document.getElementById("end").style.WebkitTransition = "opacity 5s";},5500)
+		
+		count ++;
+	if (count > 277){
+		clearInterval(e);
+		setInterval(function(){ location.href="indexS.html"; }, 2000)
+		
+	}else{
+	var e1 = "picture/kiss/kiss_" + count + ".png";
+	p.src = e1;
+	}
+
+}
+
+	
+	
+	
+	
+	
+	
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chapter 2</title>
+
+<link href="css/chap02.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body  onload="window.resizeTo(1280,760);" onResize="window.resizeTo(1280,760)">
+	<iframe src="picture/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+	<audio id="audio" loop autoplay>
+<source src="picture/水聲.mp3" type="audio/mp3">
+</audio>
+
+
+<img id="start" src="picture/2/二開.png" width="1300px" height="auto" alt=""/>
+<img id="end1" src="picture/2/二關.png" width="1300px" height="auto" alt=""/>
+
+<img id="stone" src="picture/2/stone.png" width="50px" height="auto" alt=""/>
+<img id="smallstone2" src="picture/2/stone2.png" width="50px" height="auto" alt=""/>
+<img id="smallstone3" src="picture/2/stone3.png" width="50px" height="auto" alt=""/>
+<img id="head" src="picture/2/head.png" width="50px" height="auto" alt=""/>
+<img id="purple" src="picture/2/purple.png" width="50px" height="auto" alt=""/>
+
+<img id="end" src="picture/2/牽手/牽手_71.png" width="600px" height="auto" alt=""/>
+
+<img onclick="move('up')" id="up" src="picture/2/up.png" width="50px" height="auto" alt=""/>
+<img onclick="move('down')"id="down" src="picture/2/down.png" width="50px" height="auto" alt=""/>
+<img onclick="move('right')"id="right" src="picture/2/right.png" width="50px" height="auto" alt=""/>
+<img onclick="move('left')"id="left" src="picture/2/left.png" width="50px" height="auto" alt=""/>
+
+
+
+
+<img id="bg" src="picture/2/bg2newall.png" width="auto" height="900px" alt="">
+	
+<img onclick="stoneCrack('stone1')" src="picture/2/場景石頭/bg2石頭.png" alt="" width="659" height="108"  id="stone1"/>
+<img onclick="stoneBreak('stonecrack1')" id="stonecrack1" src="picture/2/場景石頭/bg2new石頭裂.png" width="659" height="108" alt=""/>
+	
+	
+
+
+<img onclick="stoneBreak('stonecrack2')" id="stonecrack2" src="picture/2/場景石頭/bg2new石頭裂2.png" width="546" height="238"  alt=""/>
+
+
+
+
+<img onclick="stoneCrack('stone3')" src="picture/2/場景石頭/bg2new石頭3.png" alt="" width="536" height="753"  id="stone3"/>
+<img onclick="stoneBreak('stonecrack3')" id="stonecrack3" src="picture/2/場景石頭/bg2new石頭裂3.png" width="536" height="753"  alt=""/>
+
+<img onclick="stoneCrack('stone4')" src="picture/2/場景石頭/bg2new石頭5.png" alt="" width="752" height="321"  id="stone4"/>
+<img onclick="stoneBreak('stonecrack4')" id="stonecrack4" src="picture/2/場景石頭/bg2new石頭裂5.png" width="752" height="321" alt=""/>
+
+
+
+<div id="mazeContainer">
+  <canvas id="canvas" width="1500px" height="500px"></canvas>
+	</div>
+
+<script>
+    
+window.addEventListener("load",start);
+function start(){
+	setInterval(function(){	document.getElementById("start").style.opacity="0";
+	document.getElementById("start").style.WebkitTransition = "opacity 5s";},1000);
+}
+
+	function stoneCrack(ex){
+	document.getElementById(ex).style.opacity="0";
+	document.getElementById(ex).style.pointerEvents="none";
+	document.getElementById(ex).style.WebkitTransition = "opacity 0.5s";	
+	
+}	
+	
+	var breakStatus=[0,0,0,0];
+	
+	
+	function stoneBreak(exx){
+	document.getElementById(exx).style.opacity="0";
+	document.getElementById(exx).style.pointerEvents="none";
+	document.getElementById(exx).style.WebkitTransition = "opacity 0.5s";	
+		if (exx=="stonecrack1") breakStatus[0]=1;
+		if (exx=="stonecrack2") breakStatus[1]=1;	
+		if (exx=="stonecrack3") breakStatus[2]=1;	
+		if (exx=="stonecrack4") breakStatus[3]=1;	
+		
+		var end = true;
+		for (var i=0; i<4; i++){
+			if (breakStatus[i]==0) { end=false; break;}
+		}
+		
+		if (end) {
+			document.getElementById("mazeContainer").style.opacity="1";
+			document.getElementById("mazeContainer").style.WebkitTransition="opacity 1s";
+
+			document.getElementById("up").style.opacity="1";
+			document.getElementById("up").style.WebkitTransition="opacity 2s";
+			document.getElementById("up").style.pointerEvents="all";
+
+			document.getElementById("down").style.opacity="1";
+			document.getElementById("down").style.WebkitTransition="opacity 2s";
+			document.getElementById("down").style.pointerEvents="all";
+
+			document.getElementById("left").style.opacity="1";
+			document.getElementById("left").style.WebkitTransition="opacity 2s";
+			document.getElementById("left").style.pointerEvents="all";
+
+			document.getElementById("right").style.opacity="1";
+			document.getElementById("right").style.WebkitTransition="opacity 2s";
+			document.getElementById("right").style.pointerEvents="all";
+
+		}
+		
+		
+	
+}	
+
+
+		
+		
+		
+		
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+
+		// The game maze 1 = walls, 0 = free space, and -1 = the goal
+		var maze = [
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,1],
+			[1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,0,0,0,1,1,1,0,0,0,1,1,1,1,0,1],
+			[1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,0,1,0,0,1],
+			[1,1,1,0,1,0,1,1,1,0,1,1,1,1,0,1,1,0,1,0,1,0,0,0,0,0,1,0,1,1],
+			[2,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,1,1,1,1,0,1,0,0,1],
+			[1,0,1,1,1,1,1,1,0,0,1,0,1,0,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,1],
+			[1,0,0,1,0,0,0,1,1,0,1,0,0,1,1,0,0,0,1,1,0,1,1,1,0,1,0,1,1,1],
+			[1,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,-1],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+		];
+
+		var player = {
+			x: 5,
+			y: 0
+		};
+
+		var endPos = {
+			x: 8,
+			y: 29
+		};
+
+		function initializeMaze() {
+			for (var y = 0; y < maze.length; y++){
+				for(var x = 0; x < maze[y].length; x++){
+					// WALL（1）
+					if (maze [y][x] === 1) {
+						var img = document.getElementById("stone");
+						ctx.drawImage(img, x*50, y*50);
+					}
+					else if (maze [y][x] === 3) {
+						var img = document.getElementById("smallstone2");
+						ctx.drawImage(img, x*50, y*50);
+					}
+					else if (maze [y][x] === 4) {
+						var img = document.getElementById("smallstone3");
+						ctx.drawImage(img, x*50, y*50);
+					}
+
+					// GOAL（-1）
+					else if (maze [y][x] === -1) {
+						var img = document.getElementById("purple");
+						ctx.drawImage(img, x*50, y*50);
+					}
+				}
+			}
+		}
+
+		function initializePlayer() {
+			var img = document.getElementById("head");
+			ctx.drawImage(img, player.y*50, player.x*50);
+		}
+
+		// check for path & wall
+		function canMove(x,y) {
+			return (y >= 0) && (y < maze.length) && (x >= 0) && (x < maze[y].length) && (maze[y][x] != 1);
+			return (y >= 0) && (y < maze.length) && (x >= 0) && (x < maze[y].length) && (maze[y][x] != 3);
+			return (y >= 0) && (y < maze.length) && (x >= 0) && (x < maze[y].length) && (maze[y][x] != 4);
+		}
+
+		// move character
+		document.onkeydown = checkKey;
+
+		function move(a){
+			if (a == 'up' && canMove(player.y, player.x-1) ) {
+				player.x--;
+			}
+			// down arrow
+			else if (a == 'down' && canMove(player.y, player.x+1)) {
+				player.x++;
+			}
+			// left arrow
+			else if (a == 'left' && canMove(player.y-1, player.x)) {
+				player.y--;
+		
+			}
+			// right arrow
+			else if (a == 'right' && canMove(player.y+1, player.x)) {
+				player.y++;
+			}
+
+				// repaint player after each move
+			canvas.width=canvas.width;
+			initializeMaze();
+			initializePlayer();
+			
+
+			if ((player.x === endPos.x) && (player.y === endPos.y)){
+				ending();
+
+			}
+		}
+
+		function checkKey(e) {
+			e = e || window.event;
+
+			// up arrow
+			if (e.keyCode == '38' && canMove(player.y, player.x-1)) {
+				player.x--;
+			}
+			// down arrow
+			else if (e.keyCode == '40' && canMove(player.y, player.x+1)) {
+				player.x++;
+			}
+			// left arrow
+			else if (e.keyCode == '37' && canMove(player.y-1, player.x)) {
+				player.y--;
+			}
+			// right arrow
+			else if (e.keyCode == '39' && canMove(player.y+1, player.x)) {
+				player.y++;
+			}
+
+			// repaint player after each move
+			canvas.width=canvas.width;
+			initializeMaze();
+			initializePlayer();
+			e.preventDefault();
+
+			//GOAL FUNCTION
+			if ((player.x === endPos.x) && (player.y === endPos.y)){
+				ending();
+			}	
+		}
+
+ var endT;
+ var count = 71;
+ var end = document.getElementById("end");
+
+		function ending(){
+			//alert("yay");
+			end.style.opacity="1";
+			end.style.WebkitTransition = "opacity 1s";
+			endT = setInterval("end1()",80);
+
+		}
+
+		function end1(){
+			//alert("yay1");
+			document.getElementById("end1").style.opacity="1";
+			document.getElementById("end1").style.WebkitTransition = "opacity 5s";
+			count ++;
+  			if (count > 194){
+   				  //alert("yay1");
+   				  setInterval(function(){ location.href="indexR.html"; }, 1000);
+ 				 }
+  
+
+ 			 else{
+ 			 var s = "picture/2/牽手/牽手_" + count + ".png";
+  				end.src = s;
+  				}
+		}
+
+		$(document).ready(function() {
+			initializeMaze();
+			initializePlayer();
+		});
+	</script>
+</body>
+</html>

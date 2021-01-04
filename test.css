@@ -1,6 +1,11 @@
 body,html{
     font-family: "微軟正黑體";
     font-weight: 500;
+    background-color: #0E152E;
+}
+#video{
+    box-sizing: border-box;
+    border: 5px solid #003436;
 }
 #start{
     margin: 0 auto;
@@ -16,5 +21,157 @@ body,html{
     text-decoration:none;
     border: 5px solid #F56698;
     letter-spacing: 14px;
-    margin-top: 10px;
+    margin: 50px auto;
+}
+/*01海報介紹=============================================*/
+#introduction{
+    color: #acd6e8;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+#post{
+    display: flex;
+    justify-content:space-between;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+/*    border: 2px solid red;*/
+}
+#postimg{
+/*    border: 2px solid red;*/
+    margin: 0 auto;
+    width: 50%;
+    min-width: 500px;
+    height: 100%;
+    background-image:url('images/post.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media screen and (max-width:1035px){
+    #post{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+}
+/*02文字敘述=============================================*/
+#post-t{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    box-sizing: border-box;
+    width: 90%;
+    min-width: 500px;
+    max-width: 850px;
+    padding: 90px 5% 20px 4%;
+/*    border: 2px solid red;*/
+/*    height: 100%;*/
+    margin: 0 auto;
+}
+h2{
+    color: #F5DAA6;
+    margin: 3% 0;
+    letter-spacing:4pt;
+}
+p{
+    line-height: 200%;
+}
+
+/*03角色介紹=============================================*/
+#character{
+    margin: 50px auto; 
+}
+.character{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    right: 0px;
+/*    border: 2px solid red;*/
+    bottom: 0px;
+    padding: 20px 5% 20px 4%;
+    margin: 10px auto; 
+}
+.character>div{
+    width: 20%;
+}
+.character01{
+    margin-top: -5%;
+}
+.character>div>img{
+    width: 100%;
+    height: 100%;
+}
+#yellowJelly>img{
+    width: 90%;
+}
+#purpleJelly>img{
+    width: 90%;
+}
+#urchine>img{
+    width: 80%;
+}
+#star>img{
+    width: 80%;
+}
+#can>img{
+    width: 40%;
+}
+@media screen and (max-width:1035px){
+    #yellowJelly p{
+        display: none;
+    }
+    #purpleJelly p{
+        display: none;
+    }
+}
+/*關卡介紹=============================================*/
+#levels{
+    margin-bottom: 100px;
+}
+.level{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+/*    background-color: aqua;*/
+}
+.level>div,.level>p{
+    width: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.level>p{
+    box-sizing: border-box;
+    padding: 1% 10%;
+}
+#levelimg01{
+    background-image: url('images/level01.png');
+    height: 400px;
+}
+#levelimg02{
+    background-image: url('images/level02.png');
+    height: 400px;
+}
+#levelimg03{
+    background-image: url('images/level03.png');
+    height: 400px;
+}
+#levelimg04{
+    background-image: url('images/level04.png');
+    height: 400px;
+}
+#levelimg05{
+    background-image: url('images/level05.png');
+    height: 400px;
+}
+@media screen and (max-width:1035px){
+    .level>p{
+        padding: 1% 3%;
+    }
 }

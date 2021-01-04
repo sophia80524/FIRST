@@ -149,7 +149,7 @@ function pngBaseStart(){
 		
 		if ( end) {
 			clearInterval(t);
-			e = setInterval("end()",100);
+			e = setInterval("end()",35);
 			}
 		
 }	
@@ -157,7 +157,7 @@ function pngBaseStart(){
 
 function end(){
 	setInterval(function(){	document.getElementById("end").style.opacity="1";
-	document.getElementById("end").style.WebkitTransition = "opacity 5s";},5500)
+	document.getElementById("end").style.WebkitTransition = "opacity 4s";},3000)
 		
 		count ++;
 	if (count > 277){
